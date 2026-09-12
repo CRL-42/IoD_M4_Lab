@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e3f2fd;
+        }
+
+        .card {
+            padding: 10px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 3em;
+            padding: 0 0 10px 0;
+        }
+
+        .card-description {
+            font-weight: 400;
+            font-size: 2em
+        }
+    </style>
+</head>
+
+<body><template id="card-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"></div>
+                <div class="card-text"></div>
+            </div>
+        </div>
+    </template>
+    <div id="card-list"></div>
+</body>
+
+<script>
+    function addCard(cardTitle, cardText) {
+        // clone the template
+        const template =
+            document.getElementById("card-template").content.cloneNode(true);
+        // populate the template
+        template.querySelector('.card-title').innerText =
+            cardTitle;
+        template.querySelector('.card-text').innerText =
+            cardText;
+        // include the populated template into the page
+        document.querySelector('#card-list').appendChild(template);
+    }
+    addCard('Edited Card Title', 'Edited card description');
+    // For exercise 2 use the following:
+    const data = [{ name: 'bob', age: 23 }, { name: 'alice', age: 39 }]
+    addCard(data[0].name, data[0].age);
+    addCard(data[1].name, data[1].age);
+    // For Exercise 3 use the following:
+    const artist = {
+        name: "Van Gogh",
+        portfolio: [{
+            title: "portrait", url:
+                "https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+                {
+                title: "sky", url: "https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg"},
+            ]
+    }
+    function artistProfileCard(artist) {
+        //Cloning.
+        const template =
+            document.getElementById('card-template').content.cloneNode(true);
+        //Population.
+        template.querySelector('.card-title').innerText =
+            artist.name;
+        template.querySelector('.card-text').innerText =
+            artist.portfolio.map((item) => item.title).join(', ');
+        //Include to page.
+        document.querySelector('#card-list').appendChild(template);
+    }
+    artistProfileCard(artist)
+</script>
+
+</html>
