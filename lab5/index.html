@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module4 Lab5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous" />
+</head>
+<body>
+    <template id="card-template">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title"></div>
+                <div class="card-content"></div>
+            </div>
+        </div>
+    </template>
+    <div id="card-list"></div>
+
+    <form id="news-form">
+  <div class="mb-3">
+    <label for="news-headline" class="form-label">News Headline</label>
+    <input type="text" class="form-control" id="news-headline" aria-describedby="headline-help">
+    <div id="headline-help" class="form-text">Input news headline.</div>
+  </div>
+  <div class="mb-3">
+    <label for="news-article" class="form-label">News Article</label>
+    <input type="text" class="form-control" id="news-article" aria-describedby="article-help">
+    <div id="article-help" class="form-text">Input news article.</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    <script src="manageData.js"></script>
+</body>
+</html>
