@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module4 Lab7</title>
+    <style>
+        body {
+            padding: 0px;
+            animation-name: colorCycle;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            background-color: #aaa;
+        }
+        @keyframes colorCycle {
+            0% {background-color: #000;}
+            17% {background-color: #f00;}
+            34% {background-color: #ff0;}
+            50% {background-color: #0f0;}
+            67% {background-color: #0ff;}
+            84% {background-color: #00f;}
+            100% {background-color: #fff;}
+        }
+        #slider {
+            -webkit-appearance: none;
+            writing-mode: vertical-lr;
+            height: 90%;
+            width: 10px;
+            margin: 0vh 50vw;
+            border-radius: 0px;
+            background-color: #f0f0f0;
+        }
+        #slider::-webkit-slider-thumb {
+            animation-name: vert-slide;
+            animation-duration: 10s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #2196f3;
+        }
+        @keyframes vert-slide {
+            from {margin-top: 0%;}
+            to {margin-top: 93%;}
+        }
+</style>
+</head>
+<body id="sliderContainer">
+    <input id="slider" type="range" min="0" max="360" value="0"/>
+</body>
+</html>
