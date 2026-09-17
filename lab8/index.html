@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module4 Lab8</title>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.7.2/build/global/luxon.min.js"></script>
+</head>
+<body>
+    <h1>Luxon Date</h1>
+<div id="display-date"></div>
+<script>
+    // Set dates and display diference between birth and today.
+    let todayDate = luxon.DateTime.now();
+    const displayTodayDate = 
+    document.getElementById('display-date');
+    displayTodayDate.innerHTML = `<p>Todays Date: ${todayDate.toFormat('yyyy, MM, dd')}</p>`;
+
+    let birthDate = luxon.DateTime.local(1995, 3, 30);
+    const displayBirthDate =
+    document.getElementById('display-date');
+    displayBirthDate.innerHTML += `<p>Birth Date: ${birthDate.toFormat('yyyy, MM, dd')}</p>`;
+
+    let diffrence = todayDate.diff(birthDate, ['years', 'months', 'days']).toObject()
+    const displayDiffrence =
+    document.getElementById('display-date');
+    displayDiffrence.innerHTML += `<p>Age: ${diffrence.years} years, ${diffrence.months} months, ${Math.floor(diffrence.days)} days</p>`;
+// Set dates and display closesed to today.
+    let date1 = luxon.DateTime.local(2034, 12, 20);
+    const diff1 = Math.abs(todayDate.diff(date1).toMillis());
+    let date2 = luxon.DateTime.local(2005, 8, 25);
+    const diff2 = Math.abs(todayDate.diff(date2).toMillis());
+
+    const closestDate = diff1 < diff2 ? date1 : date2;
+    const displayClosestDate =
+    document.getElementById('display-date');
+    displayClosestDate.innerHTML += `<p>Closest to today: ${closestDate.toFormat('yyyy, MM, dd')}</p>`;
+// Display weather date1 is before or after date2.
+    let date1Order = date1 < date2 ? 'Before' : 'After';
+    const displayDate1Order =
+    document.getElementById('display-date');
+    displayDate1Order.innerHTML += `<p>date1 is ${date1Order} date2</p>`;
+// Display London time.
+    let LondonTime = todayDate.setZone('Europe/London').toLocaleString(luxon.DateTime.DATETIME_FULL);
+    const displayLondonTime =
+    document.getElementById('display-date');
+    displayLondonTime.innerHTML += `<p>London: ${LondonTime}</p>`;
+</script>
+</body>
+</html>
